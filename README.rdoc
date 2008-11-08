@@ -19,7 +19,7 @@ set_dict(), executable app
 require 'rubygems'
 require 'jumble'
 
-# Find solutions to jumbled word 
+# Find solutions for jumbled word
 j = Jumble.new()
 good_words = j.solve_word('rta')
 puts good_words
