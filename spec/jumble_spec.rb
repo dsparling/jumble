@@ -18,4 +18,10 @@ describe "Jumble" do
     good_words.should be_empty
   end
 
+  it "should jumble word" do
+    word = 'ruby'
+    jumbled_word = @j.jumble_word(word)
+    jumbled_word.should_not == word 
+  end
+
 end

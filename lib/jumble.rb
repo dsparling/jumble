@@ -2,7 +2,7 @@ $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 class Jumble 
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
 
   attr_accessor :dict
 
@@ -40,4 +40,11 @@ class Jumble
     end
     good_words
   end
+
+  def jumble_word(word)
+    return unless word
+    # FIXME - check that jumbled_word is differnt from word
+    jumbled_word = word.split("").sort_by{rand}.join
+  end
+
 end
