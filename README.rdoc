@@ -24,6 +24,15 @@ j = Jumble.new()
 good_words = j.solve_word('rta')
 puts good_words
 
+# Jumble a world
+j = Jumble.new()
+jumbled_word = j.jumble_world('ruby')
+
+# Create a jumble
+j = Jumble.new()
+j.word_lengths_allowed(3,4,5)
+jumble = j.create_jumble
+
 == REQUIREMENTS:
 
 None

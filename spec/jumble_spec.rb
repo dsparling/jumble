@@ -21,7 +21,13 @@ describe "Jumble" do
   it "should jumble word" do
     word = 'ruby'
     jumbled_word = @j.jumble_word(word)
+    # FIXME
     jumbled_word.should_not == word 
   end
 
+  it "should create jumble" do
+    @j.word_lengths_allowed(3,4) 
+    jumble = @j.create_jumble
+    jumble.length.should == @j.num_words
+  end
 end
