@@ -57,31 +57,29 @@ class Jumble
 
     # Read dictionary and get words same length as word
     File.open(@dict, 'r') do |file|
-      while (line = file.gets)
-        line.chomp!.downcase!
-        next if line !~ /^[a-z]+$/ # Letters only
+      while (word = file.gets)
+        word.chomp!.downcase!
+        next if word !~ /^[a-z]+$/ # Letters only
 
         # Create canonical version of the dict word
-        line_key = line.split("").sort.join
+        word_key = word.split("").sort.join
 
         # Check for word lengths allowed
         if @_word_lengths_allowed.size > 0
-          next unless @_word_lengths_allowed[line_key.length]
+          next unless @_word_lengths_allowed[word_key.length]
         end
 
         # Check for word lengths not allowed
-        #if @word_lengths_not_allowed.size > 0
-        #  next unless @word_lengths_not_allowed[line_key.length]
-        #end
-
-        # good word - keep the canonical version
-        # FIXME - eliminate temp_array (see perl)
-        temp_array = []
-        unless words[line_key].nil?
-          temp_array = words[line_key]
+        if @_word_lengths_not_allowed.size > 0
+          next unless @_word_lengths_not_allowed[word_key.length]
         end
-        temp_array << line
-        words[line_key] = temp_array
+
+        if words[word_key].nil?
+          words[word_key] = []
+        else
+          words[word_key] << word
+        end
+
       end
     end
 

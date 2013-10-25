@@ -3,7 +3,7 @@
 
 ## DESCRIPTION:
 
-Create and solve Jumble world puzzles
+Create and solve Jumble word puzzles
 
 This is a port of my Perl module Games::Jumble
 
@@ -20,9 +20,9 @@ j = Jumble.new()
 good_words = j.solve_word('rta')
 puts good_words
 
-# Jumble a world
+# Jumble a word
 j = Jumble.new()
-jumbled_word = j.jumble_world('ruby')
+jumbled_word = j.jumble_word('ruby')
 
 # Create a jumble
 j = Jumble.new()
