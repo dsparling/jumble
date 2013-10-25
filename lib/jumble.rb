@@ -24,7 +24,7 @@ class Jumble
     File.open(@dict, 'r') do |file|
       while (line = file.gets)
         line.chomp!.downcase!
-        next if line !~ /^[a-z]+$/          # Letters only
+        next if line !~ /^[a-z]+$/         # Letters only
         next if line.length != word.length # Same length as key
 
         # Create canonical version of the dict word
@@ -45,8 +45,9 @@ class Jumble
 
   def jumble_word(word)
     return unless word
-    # FIXME - check that jumbled_word is differnt from word
-    jumbled_word = word.split("").sort_by{rand}.join
+    begin
+      jumbled_word = word.split("").sort_by{rand}.join
+    end while jumbled_word == word
   end
 
 
@@ -54,11 +55,11 @@ class Jumble
 
     words = {}
 
-    # Read dictionary and get words same length as word 
+    # Read dictionary and get words same length as word
     File.open(@dict, 'r') do |file|
       while (line = file.gets)
         line.chomp!.downcase!
-        next if line !~ /^[a-z]+$/          # Letters only
+        next if line !~ /^[a-z]+$/ # Letters only
 
         # Create canonical version of the dict word
         line_key = line.split("").sort.join
@@ -77,16 +78,14 @@ class Jumble
         # FIXME - eliminate temp_array (see perl)
         temp_array = []
         unless words[line_key].nil?
-          temp_array = words[line_key] 
+          temp_array = words[line_key]
         end
         temp_array << line
-        words[line_key] = temp_array 
+        words[line_key] = temp_array
       end
     end
 
-    # Get worlds that only "unjumble" one way
-    # FIXME - why unique? Does that eliminate words 
-    # someone creating a puzzle by hand would use??
+    # Get words that only "unjumble" one way
     unique_words = []
     words.each do |key, value|
       if words[key].length == 1
@@ -94,15 +93,6 @@ class Jumble
       end
     end
     unique_words.sort!
-
-    # perl cpan
-    #foreach my $word (keys %words) {
-    #  my $length = @{$words{$word}};
-    #  if ($length == 1) {
-    #      push @unique_words, @{$words{$word}};
-    #  }
-    #}
-    #@unique_words = sort @unique_words;
 
     # Get random words for jumble
     # FIXME - unique
@@ -134,5 +124,4 @@ class Jumble
       @_word_lengths_not_allowed[a] = 1
     end
   end
-
 end

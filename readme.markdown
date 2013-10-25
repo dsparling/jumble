@@ -1,42 +1,47 @@
-= jumble
+# jumble
 
 
-== DESCRIPTION:
+## DESCRIPTION:
 
 Create and solve Jumble world puzzles
 
 This is a port of my Perl module Games::Jumble
 
-== FEATURES/PROBLEMS:
 
-TODO: create_jumble(), jumble_word(), set_num_words(), 
-set_word_lengths_allowed(), set_word_lengths_not_allowed(),
-set_dict(), executable app 
+## SYNOPSIS
 
-== SYNOPSIS:
-
+```ruby
 #!/usr/bin/env ruby
 require 'rubygems'
 require 'jumble'
 
-# Find solutions to jumbled word 
+# Find solutions for jumbled word
 j = Jumble.new()
 good_words = j.solve_word('rta')
 puts good_words
 
-== REQUIREMENTS:
+# Jumble a world
+j = Jumble.new()
+jumbled_word = j.jumble_world('ruby')
 
-None
+# Create a jumble
+j = Jumble.new()
+j.word_lengths_allowed(3,4,5)
+jumble = j.create_jumble
+```
 
-== INSTALL:
+## Version history and stuff
 
-sudo rake install_gem
+* **0.0.1**: initial release.
+* **0.1.0**: added jumble_word()
+* **0.2.0**: added create_jumble
+* **0.9.0**: updated to use gemspec
 
-== LICENSE:
+## LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 Doug Sparling 
+Copyright (c) 2008-2013 Doug Sparling
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

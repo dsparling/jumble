@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-require 'rubygems'
-require 'jumble'
-
-j = Jumble.new()
-#j.dict = 'test'
-good_words = j.solve_word('rta')
-puts good_words

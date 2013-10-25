@@ -1,10 +1,7 @@
-begin
-  require 'spec'
-rescue LoadError
-  require 'rubygems'
-  gem 'rspec'
-  require 'spec'
-end
+require 'rspec'
+
+# Load in all of our supporting code
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 require 'jumble'
