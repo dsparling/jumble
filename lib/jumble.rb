@@ -45,9 +45,11 @@ class Jumble
 
   def jumble_word(word)
     return unless word
+    jumbled_word = ""
     begin
       jumbled_word = word.split("").sort_by{rand}.join
     end while jumbled_word == word
+    jumbled_word
   end
 
 
@@ -93,21 +95,20 @@ class Jumble
     unique_words.sort!
 
     # Get random words for jumble
-    # FIXME - unique
     jumble_words = []
     1.upto(@num_words) do
-      # FIXME - perl below
-      #redo if $el =~ /(\w)\1+/;  # No words like ii, ooo or aaa
+      el = unique_words.sample
+      next if el =~ /(\w)\1+/ # No words like ii, ooo, or aaa
       jumble_words << unique_words[rand(unique_words.size)]
     end
 
     # Scramble the words
     jumbled_words = []
     jumble_words.each do |w|
-      jumbled_words << self.jumble_word(w[0]) 
+      jumbled_words << self.jumble_word(w[0])
     end
 
-    # FIXME - return jumbled_words, jumble_words (answers)
+    # TODO - return jumbled_words AND jumble_words (answers)
     jumbled_words
   end
 

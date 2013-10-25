@@ -23,11 +23,13 @@ puts good_words
 # Jumble a word
 j = Jumble.new()
 jumbled_word = j.jumble_word('ruby')
+puts jumbled_word
 
 # Create a jumble
 j = Jumble.new()
 j.word_lengths_allowed(3,4,5)
 jumble = j.create_jumble
+puts jumble.inspect
 ```
 
 ## Version history and stuff
