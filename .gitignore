@@ -4,3 +4,4 @@ log
 *.gem
 tmp
 rdoc
+coverage
