@@ -32,10 +32,10 @@ jumble = j.create_jumble
 
 ## Version history and stuff
 
-* **0.0.1**: initial release.
-* **0.1.0**: added jumble_word()
-* **0.2.0**: added create_jumble
-* **0.9.0**: updated to use gemspec
+* **0.0.1**: initial release. (2008)
+* **0.1.0**: added jumble_word().
+* **0.2.0**: added create_jumble.
+* **0.9.0**: updated to use gemspec/expect syntax/cleanup of some cruft.
 
 ## LICENSE:
 
