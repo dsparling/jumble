@@ -73,7 +73,7 @@ class Jumble
 
         # Check for word lengths not allowed
         if @_word_lengths_not_allowed.size > 0
-          next unless @_word_lengths_not_allowed[word_key.length]
+          next if @_word_lengths_not_allowed[word_key.length]
         end
 
         if words[word_key].nil?
